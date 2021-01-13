@@ -32,13 +32,35 @@ const CounterWithReducer = () => {
 
   return (
     <>
-      <h4>Count: {state.count}</h4>
-      <button onClick={() => dispatch({ type: 'decrement' })}>-</button>
-      <button onClick={() => dispatch({ type: 'increment' })}>+</button>
-      <button onClick={() => dispatch({ type: 'reset' })}>Reset</button>
-      <div>This component was re-rendered {renderTimes.current} Times!</div>
-      <input ref={ref} type="text" />
-      <button onClick={forcusInput}>Click Me!</button>
+      <h4 className="mt-5 mb-3">Count: {state.count}</h4>
+      <button
+        type="button"
+        className="btn btn-primary"
+        onClick={() => dispatch({ type: 'increment' })}
+      >
+        +
+      </button>
+      <button
+        type="button"
+        className="btn btn-danger ml-1"
+        onClick={() => dispatch({ type: 'decrement' })}
+      >
+        -
+      </button>
+      <button
+        type="button"
+        className="btn btn-warning ml-1"
+        onClick={() => dispatch({ type: 'reset' })}
+      >
+        Reset
+      </button>
+      <div className="mt-5 mb-3">
+        This component was re-rendered {renderTimes.current} Times!
+      </div>
+      <input className="form-control" ref={ref} type="text" />
+      <button type="button" className="btn btn-success" onClick={forcusInput}>
+        Click Me!
+      </button>
     </>
   );
 };

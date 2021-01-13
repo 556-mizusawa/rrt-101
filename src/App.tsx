@@ -1,4 +1,5 @@
 import React from 'react';
+import 'bootstrap/dist/css/bootstrap.min.css';
 import CounterWithReducer from './CounterWithReducer';
 
 interface AppProps {
@@ -7,9 +8,9 @@ interface AppProps {
 
 const App: React.FC<AppProps> = ({ message }) => {
   return (
-    <>
+    <div className="container-fluid">
       <CounterWithReducer />
-    </>
+    </div>
   );
 };
 
