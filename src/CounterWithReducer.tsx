@@ -1,4 +1,4 @@
-import React, { useReducer } from 'react';
+import React, { useEffect, useReducer, useRef } from 'react';
 
 type StateType = { count: number };
 const initialState: StateType = { count: 0 };
@@ -20,12 +20,25 @@ const reducer = (state: StateType, action: ActionType): StateType | never => {
 
 const CounterWithReducer = () => {
   const [state, dispatch] = useReducer(reducer, initialState);
+
+  const renderTimes = useRef<number>(0);
+  useEffect(() => {
+    renderTimes.current++;
+  });
+  const ref = useRef<HTMLInputElement>(null!);
+  const forcusInput = () => {
+    ref.current.focus();
+  };
+
   return (
     <>
-      Count: {state.count}
+      <h4>Count: {state.count}</h4>
       <button onClick={() => dispatch({ type: 'decrement' })}>-</button>
       <button onClick={() => dispatch({ type: 'increment' })}>+</button>
       <button onClick={() => dispatch({ type: 'reset' })}>Reset</button>
+      <div>This component was re-rendered {renderTimes.current} Times!</div>
+      <input ref={ref} type="text" />
+      <button onClick={forcusInput}>Click Me!</button>
     </>
   );
 };
