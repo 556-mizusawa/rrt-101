@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 
 const Counter: React.FC<{}> = () => {
   const initialValue: number = 0;
@@ -12,11 +12,17 @@ const Counter: React.FC<{}> = () => {
     setValue((prevState) => prevState - 1);
   };
 
+  const renderTimes = useRef<number>(0);
+  useEffect(() => {
+    renderTimes.current++;
+  });
+
   return (
     <>
       <h4>value: {value}</h4>
       <button onClick={incriment}>+1</button>
       <button onClick={decriment}>-1</button>
+      <div>This component was re-rendered {renderTimes.current} Times!</div>
     </>
   );
 };
