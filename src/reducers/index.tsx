@@ -1,13 +1,12 @@
-import React, { useReducer } from 'react';
-
 type StateType = [];
 type ActionType = {
   type: 'CREATE_EVENT' | 'DELETE_EVENT' | 'DELETE_ALL_EVENT';
   title: string;
   body: string;
 };
+// type ReturnType = StateType | [{}];
 
-const events = (state: StateType, action: ActionType) => {
+const events = (state: StateType, action: ActionType): any => {
   switch (action.type) {
     case 'CREATE_EVENT':
       const event = { title: action.title, body: action.body };
