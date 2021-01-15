@@ -1,5 +1,9 @@
 import React, { useState, useReducer, MouseEvent } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
+
+import { MyEventType } from '../actions/TypeFile';
+
+import Event from './Event';
 import reducer from '../reducers';
 
 const App: React.FC<{}> = () => {
@@ -9,7 +13,6 @@ const App: React.FC<{}> = () => {
 
   const addEvent = (e: MouseEvent<HTMLButtonElement>) => {
     e.preventDefault();
-    console.log({ title, body });
     dispatch({
       type: 'CREATE_EVENT',
       title,
@@ -19,8 +22,6 @@ const App: React.FC<{}> = () => {
     setTitle('');
     setbody('');
   };
-
-  console.log({ state });
 
   return (
     <div className="container-fluid">
@@ -56,8 +57,8 @@ const App: React.FC<{}> = () => {
       </form>
 
       <h4 className="mt-5">イベント一覧</h4>
-      <table className="table table-dark">
-        <thead>
+      <table className="table table-hover">
+        <thead className="table-dark">
           <tr>
             <th>ID</th>
             <th>タイトル</th>
@@ -65,7 +66,11 @@ const App: React.FC<{}> = () => {
             <th></th>
           </tr>
         </thead>
-        <tbody></tbody>
+        <tbody>
+          {state.map((event: MyEventType, index: number) => (
+            <Event key={index} event={event} dispatch={dispatch} />
+          ))}
+        </tbody>
       </table>
     </div>
   );

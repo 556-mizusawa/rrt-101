@@ -1,20 +1,17 @@
-type StateType = [];
-type ActionType = {
-  type: 'CREATE_EVENT' | 'DELETE_EVENT' | 'DELETE_ALL_EVENT';
-  title: string;
-  body: string;
-};
+import { MyActionType } from '../actions/TypeFile';
+
+// type StateType = [] | any;
 // type ReturnType = StateType | [{}];
 
-const events = (state: StateType, action: ActionType): any => {
+const events = (state: any = [], action: MyActionType): any => {
   switch (action.type) {
     case 'CREATE_EVENT':
       const event = { title: action.title, body: action.body };
       const length = state.length;
-      const id = length === 0 ? 1 : state[length - 1] + 1;
+      const id = length === 0 ? 1 : state[length - 1].id + 1;
       return [...state, { id, ...event }];
     case 'DELETE_EVENT':
-      return state;
+      return state.filter((event: MyActionType) => event.id !== action.id);
     case 'DELETE_ALL_EVENT':
       return [];
     default:
