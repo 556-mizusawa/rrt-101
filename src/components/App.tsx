@@ -23,6 +23,19 @@ const App: React.FC<{}> = () => {
     setbody('');
   };
 
+  const deleteAllEvents = (e: MouseEvent<HTMLButtonElement>) => {
+    e.preventDefault();
+    const result = window.confirm(
+      '全てのイベントを本当に削除しても良いですか？'
+    );
+
+    if (result) {
+      dispatch({ type: 'DELETE_ALL_EVENTS' });
+    }
+  };
+
+  const unCreatable = title === '' || body === '';
+
   return (
     <div className="container-fluid">
       <h4 className="mt-3">イベント作成フォーム</h4>
@@ -50,10 +63,20 @@ const App: React.FC<{}> = () => {
             onChange={(e) => setbody(e.target.value)}
           />
         </div>
-        <button className="btn btn-primary" onClick={addEvent}>
+        <button
+          className="btn btn-primary"
+          onClick={addEvent}
+          disabled={unCreatable}
+        >
           イベントを作成する
         </button>
-        <button className="btn btn-danger ml-1">全てのイベントを削除</button>
+        <button
+          className="btn btn-danger ml-1"
+          onClick={deleteAllEvents}
+          disabled={state.length === 0}
+        >
+          全てのイベントを削除
+        </button>
       </form>
 
       <h4 className="mt-5">イベント一覧</h4>
