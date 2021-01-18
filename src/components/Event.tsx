@@ -1,13 +1,10 @@
 import React from 'react';
 import { MyActionType, MyEventType } from '../actions/TypeFile';
 
-const Event = ({
-  dispatch,
-  event,
-}: {
+const Event: React.FC<{
   dispatch: React.Dispatch<MyActionType>;
   event: MyEventType;
-}) => {
+}> = ({ dispatch, event }) => {
   const id = event.id;
   const handleClickDeleteButton = () => {
     const result = window.confirm(
