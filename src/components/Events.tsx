@@ -1,13 +1,10 @@
-import React, { Dispatch, useContext } from 'react';
-import { MyActionType, MyEventType } from '../actions/TypeFile';
+import React, { useContext } from 'react';
+import { MyEventType } from '../actions/TypeFile';
 import Event from './Event';
 import AppContext from '../contexts/AppContext';
 
-const Events: React.FC<{ state: []; dispatch: Dispatch<MyActionType> }> = ({
-  state,
-  dispatch,
-}) => {
-  const value = useContext(AppContext);
+const Events: React.FC<{}> = () => {
+  const { state } = useContext(AppContext);
   return (
     <>
       <h4 className="mt-5">イベント一覧</h4>
@@ -22,7 +19,7 @@ const Events: React.FC<{ state: []; dispatch: Dispatch<MyActionType> }> = ({
         </thead>
         <tbody>
           {state.map((event: MyEventType, index: number) => (
-            <Event key={index} event={event} dispatch={dispatch} />
+            <Event key={index} event={event} />
           ))}
         </tbody>
       </table>

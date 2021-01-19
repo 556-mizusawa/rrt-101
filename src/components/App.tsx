@@ -12,10 +12,10 @@ const App: React.FC<{}> = () => {
   // console.log(state, 'in App.js');
 
   return (
-    <AppContext.Provider value={''}>
+    <AppContext.Provider value={{ state, dispatch }}>
       <div className="container-fluid">
-        <EventForm state={state} dispatch={dispatch} />
-        <Events state={state} dispatch={dispatch} />
+        <EventForm />
+        <Events />
       </div>
     </AppContext.Provider>
   );

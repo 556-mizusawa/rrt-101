@@ -1,5 +1,11 @@
-import React from 'react';
+import React, { Dispatch } from 'react';
+import { MyActionType } from '../actions/TypeFile';
 
-const AppContext = React.createContext({});
+type ContextProps = {
+  state: [];
+  dispatch: Dispatch<MyActionType>;
+};
+
+const AppContext = React.createContext({} as ContextProps);
 
 export default AppContext;
