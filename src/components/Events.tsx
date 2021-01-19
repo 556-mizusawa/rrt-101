@@ -1,11 +1,13 @@
-import React, { Dispatch } from 'react';
+import React, { Dispatch, useContext } from 'react';
 import { MyActionType, MyEventType } from '../actions/TypeFile';
 import Event from './Event';
+import AppContext from '../contexts/AppContext';
 
 const Events: React.FC<{ state: []; dispatch: Dispatch<MyActionType> }> = ({
   state,
   dispatch,
 }) => {
+  const value = useContext(AppContext);
   return (
     <>
       <h4 className="mt-5">イベント一覧</h4>
