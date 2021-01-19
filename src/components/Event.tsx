@@ -1,10 +1,11 @@
-import React from 'react';
-import { MyActionType, MyEventType } from '../actions/TypeFile';
+import React, { useContext } from 'react';
+import { MyEventType } from '../actions/TypeFile';
+import AppContext from '../contexts/AppContext';
 
 const Event: React.FC<{
-  dispatch: React.Dispatch<MyActionType>;
   event: MyEventType;
-}> = ({ dispatch, event }) => {
+}> = ({ event }) => {
+  const { dispatch } = useContext(AppContext);
   const id = event.id;
   const handleClickDeleteButton = () => {
     const result = window.confirm(

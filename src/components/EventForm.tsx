@@ -1,10 +1,8 @@
-import React, { useState, MouseEvent, Dispatch } from 'react';
-import { MyActionType } from '../actions/TypeFile';
+import React, { useContext, useState, MouseEvent } from 'react';
+import AppContext from '../contexts/AppContext';
 
-const EventForm: React.FC<{ state: []; dispatch: Dispatch<MyActionType> }> = ({
-  state,
-  dispatch,
-}) => {
+const EventForm: React.FC<{}> = () => {
+  const { state, dispatch } = useContext(AppContext);
   const [title, setTitle] = useState('');
   const [body, setbody] = useState('');
   // console.log(state, 'in Event.js');
