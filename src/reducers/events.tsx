@@ -1,8 +1,6 @@
 import { MyActionType } from '../actions';
 
-// type ReturnType = StateType | [{}];
-
-const events = (state: any, action: MyActionType) => {
+const events = (state: any = [], action: MyActionType) => {
   switch (action.type) {
     case 'CREATE_EVENT':
       const event = { title: action.title, body: action.body };

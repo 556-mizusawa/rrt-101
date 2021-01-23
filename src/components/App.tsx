@@ -13,6 +13,7 @@ const App: React.FC<{}> = () => {
   };
 
   const [state, dispatch] = useReducer(reducer, initialState);
+  console.log(initialState.operationLogs);
 
   // console.log(state, 'in App.js');
 

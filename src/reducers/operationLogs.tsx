@@ -1,6 +1,6 @@
 import { OPERATION_LOGS } from '../actions';
 
-const operationLogs = (state: any, action: OPERATION_LOGS) => {
+const operationLogs = (state: any = [], action: OPERATION_LOGS) => {
   switch (action.type) {
     case 'ADD_OPERATION_LOG':
       const operationLog = {
