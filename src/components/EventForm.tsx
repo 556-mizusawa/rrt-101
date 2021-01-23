@@ -1,5 +1,6 @@
 import React, { useContext, useState, MouseEvent } from 'react';
 import AppContext from '../contexts/AppContext';
+import { timeCurrentIso8601 } from '../utils';
 
 const EventForm: React.FC<{}> = () => {
   const { state, dispatch } = useContext(AppContext);
@@ -15,6 +16,12 @@ const EventForm: React.FC<{}> = () => {
       body,
     });
 
+    dispatch({
+      type: 'ADD_OPERATION_LOG',
+      description: 'イベントを作成しました。',
+      operatedAt: timeCurrentIso8601(),
+    });
+
     setTitle('');
     setbody('');
   };
@@ -27,6 +34,12 @@ const EventForm: React.FC<{}> = () => {
 
     if (result) {
       dispatch({ type: 'DELETE_ALL_EVENTS' });
+
+      dispatch({
+        type: 'ADD_OPERATION_LOG',
+        description: '全てのイベントを削除しました。',
+        operatedAt: timeCurrentIso8601(),
+      });
     }
   };
 
