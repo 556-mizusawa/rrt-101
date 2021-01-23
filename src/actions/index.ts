@@ -16,6 +16,6 @@ export interface MyActionType {
 
 export interface OPERATION_LOGS {
   type: 'ADD_OPERATION_LOG' | 'DELETE_ALL_OPERATION_LOGS';
-  description: string;
-  operatedAt: string;
+  description?: string;
+  operatedAt?: string;
 }

@@ -3,7 +3,10 @@ import { CombinedState } from 'redux';
 import { MyActionType, MyEventType, OPERATION_LOGS } from '../actions';
 
 type ContextProps = {
-  state: CombinedState<{ events: MyEventType[] }>;
+  state: CombinedState<{
+    events: MyEventType[];
+    operationLogs: string | any[];
+  }>;
   dispatch: Dispatch<MyActionType | OPERATION_LOGS>;
 };
 
