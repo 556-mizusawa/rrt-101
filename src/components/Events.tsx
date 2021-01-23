@@ -1,5 +1,5 @@
 import React, { useContext } from 'react';
-import { MyEventType } from '../actions/TypeFile';
+import { MyEventType } from '../actions';
 import Event from './Event';
 import AppContext from '../contexts/AppContext';
 

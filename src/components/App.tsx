@@ -9,6 +9,7 @@ import reducer from '../reducers';
 const App: React.FC<{}> = () => {
   const initialState = {
     events: [],
+    operationLogs: [],
   };
 
   const [state, dispatch] = useReducer(reducer, initialState);
