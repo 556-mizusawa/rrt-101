@@ -18,7 +18,7 @@ const Events: React.FC<{}> = () => {
           </tr>
         </thead>
         <tbody>
-          {state.map((event: MyEventType, index: number) => (
+          {state.events.map((event: MyEventType, index: number) => (
             <Event key={index} event={event} />
           ))}
         </tbody>

@@ -1,8 +1,9 @@
 import React, { Dispatch } from 'react';
-import { MyActionType } from '../actions/TypeFile';
+import { CombinedState } from 'redux';
+import { MyActionType, MyEventType } from '../actions/TypeFile';
 
 type ContextProps = {
-  state: [];
+  state: CombinedState<{ events: MyEventType[] }>;
   dispatch: Dispatch<MyActionType>;
 };
 

@@ -7,7 +7,11 @@ import AppContext from '../contexts/AppContext';
 import reducer from '../reducers';
 
 const App: React.FC<{}> = () => {
-  const [state, dispatch] = useReducer(reducer, []);
+  const initialState = {
+    events: [],
+  };
+
+  const [state, dispatch] = useReducer(reducer, initialState);
 
   // console.log(state, 'in App.js');
 

@@ -69,7 +69,7 @@ const EventForm: React.FC<{}> = () => {
         <button
           className="btn btn-danger ml-1"
           onClick={deleteAllEvents}
-          disabled={state.length === 0}
+          disabled={state.events.length === 0}
         >
           全てのイベントを削除
         </button>
