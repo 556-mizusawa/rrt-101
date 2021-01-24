@@ -4,4 +4,36 @@ header {
   width: 100%;
   display: flex;
   align-items: center;
+  margin: 0 auto;
+}
+
+.AppTitle {
+  margin: 0 auto;
+}
+
+.object {
+  display: flex;
+  justify-content: flex-start;
+  height: 55vh;
+}
+
+.heading {
+  display: block;
+}
+
+.form-content {
+  display: block;
+  width: 60%;
+  margin-top: 10px;
+}
+
+.main-content {
+  display: block;
+  width: 100%;
+  margin-left: 10px;
+  margin-top: 10px;
+}
+
+.buttons {
+  display: flex;
 }

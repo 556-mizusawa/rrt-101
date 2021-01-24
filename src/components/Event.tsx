@@ -25,6 +25,9 @@ const Event: React.FC<{
   return (
     <tr>
       <td>{id}</td>
+      <td>
+        <input type="checkbox" />
+      </td>
       <td>{event.title}</td>
       <td>{event.body}</td>
       <td>

@@ -7,6 +7,7 @@ import OperationLogs from './OperationLogs';
 import AppContext from '../contexts/AppContext';
 import reducer from '../reducers';
 import { App_State } from '../actions';
+import '../index.css';
 
 const App: React.FC<{}> = () => {
   const appState = localStorage.getItem(App_State);
@@ -28,9 +29,13 @@ const App: React.FC<{}> = () => {
   return (
     <AppContext.Provider value={{ state, dispatch }}>
       <div className="container-fluid">
-        <EventForm />
-        <Events />
-        <OperationLogs />
+        <div className="object">
+          <EventForm />
+          <Events />
+        </div>
+        <div className="Logs">
+          <OperationLogs />
+        </div>
       </div>
     </AppContext.Provider>
   );

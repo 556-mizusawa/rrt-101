@@ -1,6 +1,7 @@
 import React, { useContext, useState, MouseEvent } from 'react';
 import AppContext from '../contexts/AppContext';
 import { timeCurrentIso8601 } from '../utils';
+import '../index.css';
 
 const EventForm: React.FC<{}> = () => {
   const { state, dispatch } = useContext(AppContext);
@@ -59,53 +60,57 @@ const EventForm: React.FC<{}> = () => {
 
   return (
     <>
-      <h4 className="mt-3">イベント作成フォーム</h4>
-      <form>
-        <div className="form-group">
-          <label htmlFor="formEventTitle" className="mt-3">
-            タイトル
-          </label>
-          <input
-            className="form-control"
-            id="formEventTitle"
-            value={title}
-            onChange={(e) => setTitle(e.target.value)}
-          />
-        </div>
+      <div className="form-content">
+        <h4 className="heading">イベント作成フォーム</h4>
+        <form>
+          <div className="form-group">
+            <label htmlFor="formEventTitle" className="mt-3">
+              タイトル
+            </label>
+            <input
+              className="form-control"
+              id="formEventTitle"
+              value={title}
+              onChange={(e) => setTitle(e.target.value)}
+            />
+          </div>
 
-        <div className="form-group">
-          <label htmlFor="formEventBody" className="mt-3">
-            ボディー
-          </label>
-          <textarea
-            className="form-control"
-            id="formEventBody"
-            value={body}
-            onChange={(e) => setbody(e.target.value)}
-          />
-        </div>
-        <button
-          className="btn btn-primary"
-          onClick={addEvent}
-          disabled={unCreatable}
-        >
-          イベントを作成する
-        </button>
-        <button
-          className="btn btn-danger ml-1"
-          onClick={deleteAllEvents}
-          disabled={state.events.length === 0}
-        >
-          全てのイベントを削除
-        </button>
-        <button
-          className="btn btn-danger ml-1"
-          onClick={deleteAllOperationLogs}
-          disabled={state.operationLogs.length === 0}
-        >
-          全ての操作ログを削除
-        </button>
-      </form>
+          <div className="form-group">
+            <label htmlFor="formEventBody" className="mt-3">
+              ボディー
+            </label>
+            <textarea
+              className="form-control"
+              id="formEventBody"
+              value={body}
+              onChange={(e) => setbody(e.target.value)}
+            />
+          </div>
+          <div className="buttons">
+            <button
+              className="btn btn-primary btn-sm"
+              onClick={addEvent}
+              disabled={unCreatable}
+            >
+              イベントを作成する
+            </button>
+            <button
+              className="btn btn-danger ml-1"
+              onClick={deleteAllEvents}
+              disabled={state.events.length === 0}
+            >
+              全てのイベントを削除
+            </button>
+            <button
+              className="btn btn-danger ml-1"
+              onClick={deleteAllOperationLogs}
+              disabled={state.operationLogs.length === 0}
+            >
+              全ての操作ログを削除
+            </button>
+          </div>
+        </form>
+      </div>
     </>
   );
 };

@@ -7,22 +7,25 @@ const Events: React.FC<{}> = () => {
   const { state } = useContext(AppContext);
   return (
     <>
-      <h4 className="mt-5">イベント一覧</h4>
-      <table className="table table-hover">
-        <thead className="table-dark">
-          <tr>
-            <th>ID</th>
-            <th>タイトル</th>
-            <th>ボディー</th>
-            <th></th>
-          </tr>
-        </thead>
-        <tbody>
-          {state.events.map((event: MyEventType, index: number) => (
-            <Event key={index} event={event} />
-          ))}
-        </tbody>
-      </table>
+      <div className="main-content">
+        <h4 className="heading">イベント一覧</h4>
+        <table className="table table-hover">
+          <thead className="table-dark">
+            <tr>
+              <th>ID</th>
+              <th>to/do</th>
+              <th>タイトル</th>
+              <th>ボディー</th>
+              <th></th>
+            </tr>
+          </thead>
+          <tbody>
+            {state.events.map((event: MyEventType, index: number) => (
+              <Event key={index} event={event} />
+            ))}
+          </tbody>
+        </table>
+      </div>
     </>
   );
 };
