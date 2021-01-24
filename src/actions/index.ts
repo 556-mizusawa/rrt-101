@@ -21,3 +21,5 @@ export interface OPERATION_LOGS {
   description?: string;
   operatedAt?: string;
 }
+
+export const App_State = 'appWithRedux';
