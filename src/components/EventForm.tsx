@@ -43,6 +43,18 @@ const EventForm: React.FC<{}> = () => {
     }
   };
 
+  const deleteAllOperationLogs = (e: MouseEvent<HTMLButtonElement>) => {
+    e.preventDefault();
+    const result = window.confirm(
+      '全ての操作ログを本当に削除しても良いですか？'
+    );
+    if (result) {
+      dispatch({
+        type: 'DELETE_ALL_OPERATION_LOGS',
+      });
+    }
+  };
+
   const unCreatable = title === '' || body === '';
 
   return (
@@ -85,6 +97,13 @@ const EventForm: React.FC<{}> = () => {
           disabled={state.events.length === 0}
         >
           全てのイベントを削除
+        </button>
+        <button
+          className="btn btn-danger ml-1"
+          onClick={deleteAllOperationLogs}
+          disabled={state.operationLogs.length === 0}
+        >
+          全ての操作ログを削除
         </button>
       </form>
     </>
