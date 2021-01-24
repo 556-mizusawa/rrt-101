@@ -5,7 +5,7 @@ import { MyActionType, MyEventType, OPERATION_LOGS } from '../actions';
 type ContextProps = {
   state: CombinedState<{
     events: MyEventType[];
-    operationLogs: string | any[];
+    operationLogs: [];
   }>;
   dispatch: Dispatch<MyActionType | OPERATION_LOGS>;
 };

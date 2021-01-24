@@ -11,8 +11,10 @@ export interface MyActionType {
   body?: string;
 }
 
-// export const ADD_OPERATION_LOG = 'ADD_OPERATION_LOG';
-// export const DELETE_ALL_OPERATION_LOGS = 'DELETE_ALL_OPERATION_LOGS';
+export interface MyOperationLog {
+  description: string;
+  operatedAt: string;
+}
 
 export interface OPERATION_LOGS {
   type: 'ADD_OPERATION_LOG' | 'DELETE_ALL_OPERATION_LOGS';
